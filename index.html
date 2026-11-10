@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Gobetti | Nail Designer</title>
+    <!-- Importando fontes do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Importando FontAwesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <nav class="nav-bar">
+            <!-- Div Chamativa de Dezembro Centralizada -->
+            <div class="aviso-dezembro">
+                <div class="aviso-glow"></div>
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>A agenda de <strong>Dezembro</strong> já está aberta! Garanta seu horário.</span>
+            </div>
+
+            <!-- Logotipo em Texto Estilizado -->
+            <div class="logotipo">
+                <a href="#inicio" class="logo-text">
+                    <span class="logo-main">STUDIO GOBETTI</span>
+                    <span class="logo-sub">NAIL DESIGNER</span>
+                </a>
+            </div>
+
+            <!-- Redes Sociais e CTA -->
+            <div class="redes-sociais">
+                <a href="https://instagram.com" target="_blank" class="social-icon instagram" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-icon facebook" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://whatsapp.com" target="_blank" class="btn-whatsapp" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i> Agendar
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal Dividido em Duas Seções -->
+    <main class="conteudo-principal" id="inicio">
+        <!-- Lado Esquerdo: Chamada + História + Informações (Endereço e Pagamentos) -->
+        <section class="hero-chamada">
+            <span class="badge-destaque"><i class="fa-solid fa-sparkles"></i> Excelência em Nail Design</span>
+            <h1>Transforme suas unhas com elegância e sofisticação</h1>
+            <p>Valorize sua beleza e autoestima com nossos serviços exclusivos. Cuidado especializado, técnicas modernas e um atendimento pensado exclusivamente para você.</p>
+            
+            <div class="historia-proprietaria">
+                <div class="historia-card">
+                    <div class="historia-icone">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="historia-texto">
+                        <h3>Nossa História</h3>
+                        <p>O <strong>Studio Gobetti</strong> nasceu da paixão profunda por transformar o cuidado com as unhas em um verdadeiro momento de autocuidado e elevação da autoestima. Cada detalhe foi idealizado para proporcionar um ambiente acolhedor, onde técnica impecável, amor pela profissão e exclusividade se unem para realçar a sua melhor versão.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nova Div: Endereço e Formas de Pagamento -->
+            <div class="info-estudio">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span><strong>Endereço:</strong> Rua Exemplo, 123 - Sala 45 - Centro</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span><strong>Formas de Pagamento:</strong> Aceitamos Pix, Cartões de Crédito e Débito</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lado Direito: Agenda / Seleção de Serviços e Área do ADM -->
+        <section class="hero-agenda" id="agenda">
+            <div class="agenda-card">
+                <h2><i class="fa-regular fa-calendar-days"></i> Reserve seu Horário</h2>
+                <p class="agenda-sub">Preencha os dados abaixo e confirme direto pelo WhatsApp:</p>
+                
+                <form class="form-agenda" id="formAgenda">
+                    <!-- Seu Nome Completo -->
+                    <div class="input-grupo">
+                        <label for="nome">Seu nome completo</label>
+                        <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+                    </div>
+
+                    <!-- Selecione o Serviço -->
+                    <div class="input-grupo">
+                        <label for="servico">Selecione o serviço</label>
+                        <select id="servico" required>
+                            <option value="" disabled selected>Escolha o procedimento</option>
+                            <option value="Alongamento de unha">Alongamento de unha</option>
+                            <option value="Spa dos pés">Spa dos pés</option>
+                            <option value="Manicure">Manicure</option>
+                            <option value="Pedicure">Pedicure</option>
+                            <option value="Manicure e pedicure">Manicure e pedicure</option>
+                        </select>
+                    </div>
+
+                    <!-- Data (Dia / Mês / Ano) -->
+                    <div class="input-grupo">
+                        <label for="data">Data (Dia / Mês / Ano)</label>
+                        <input type="date" id="data" required>
+                    </div>
+
+                    <!-- Horário (Das 09:00 às 20:00) -->
+                    <div class="input-grupo">
+                        <label for="horario">Horário (09:00 às 20:00)</label>
+                        <select id="horario" required>
+                            <option value="" disabled selected>Selecione uma data primeiro</option>
+                        </select>
+                    </div>
+
+                    <!-- Botão de WhatsApp com cor armonizada combinando com a página -->
+                    <button type="button" id="btnWhatsAppAgenda" class="btn-whatsapp-agenda">
+                         Confirmar Agendamento via WhatsApp
+                    </button>
+                </form>
+
+                <!-- Área Restrita do Administrador -->
+                <div class="agenda-registros">
+                    <div class="adm-topo">
+                        <h3><i class="fa-solid fa-lock"></i> Painel do Administrador</h3>
+                        <button id="btnToggleAdm" class="btn-adm-toggle">Acessar Consulta</button>
+                    </div>
+
+                    <!-- Modal / Caixa de Senha Oculta inicialmente -->
+                    <div id="painelSenha" class="painel-senha oculto">
+                        <p>Digite a senha de acesso:</p>
+                        <div class="grupo-senha">
+                            <input type="password" id="inputSenha" placeholder="Senha do ADM">
+                            <button id="btnValidarSenha">Entrar</button>
+                        </div>
+                    </div>
+
+                    <!-- Lista de Registros protegida -->
+                    <div id="conteudoAdm" class="conteudo-adm oculto">
+                        <div id="listaRegistros" class="lista-registros">
+                            <p class="nenhum-registro">Nenhum horário agendado no momento.</p>
+                        </div>
+                        <button id="btnFecharAdm" class="btn-fechar-adm">Bloquear Painel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Importando o Script JavaScript -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

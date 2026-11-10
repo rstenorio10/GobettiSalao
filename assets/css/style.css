@@ -1,0 +1,605 @@
+/* Configurações Globais e Prevenção de Estouro de Tela */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: rgb(255, 234, 237);
+    color: #4a3b40;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(110, 70, 80, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    padding: 10px 0;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+/* Div Chamativa de Dezembro Centralizada */
+.aviso-dezembro {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #b56576, #d48393);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 18px rgba(181, 101, 118, 0.4);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: pulsarSuave 3s infinite ease-in-out;
+}
+
+.aviso-dezembro i {
+    font-size: 1.15rem;
+    color: #ffd166;
+}
+
+.aviso-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
+    opacity: 0;
+    animation: brilhoPassando 4s infinite linear;
+}
+
+@keyframes pulsarSuave {
+    0% { transform: scale(1); box-shadow: 0 4px 15px rgba(181, 101, 118, 0.35); }
+    50% { transform: scale(1.02); box-shadow: 0 6px 22px rgba(181, 101, 118, 0.55); }
+    100% { transform: scale(1); box-shadow: 0 4px 15px rgba(181, 101, 118, 0.35); }
+}
+
+@keyframes brilhoPassando {
+    0% { transform: translate(-30%, -30%); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translate(30%, 30%); opacity: 0; }
+}
+
+/* Estilização do Logotipo em Texto */
+.logotipo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.logo-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #6d4c54;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.logo-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: #b56576;
+    margin-top: 1px;
+    text-transform: uppercase;
+}
+
+.logo-text:hover {
+    transform: scale(1.03);
+}
+
+.logo-text:hover .logo-main {
+    color: #b56576;
+}
+
+/* Redes Sociais e CTA */
+.redes-sociais {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Ícones Sociais (Instagram / Facebook) */
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background-color: #fff;
+    color: #b56576;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1rem;
+    box-shadow: 0 3px 10px rgba(110, 70, 80, 0.1);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #b56576;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(181, 101, 118, 0.3);
+}
+
+/* Botão de WhatsApp do Topo */
+.btn-whatsapp {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #25d366;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 9px 18px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp i {
+    font-size: 1.1rem;
+}
+
+.btn-whatsapp:hover {
+    background-color: #20ba5a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+/* Estilização do Main (Duas Colunas) */
+.conteudo-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    min-height: calc(100vh - 160px);
+    gap: 40px;
+}
+
+/* Lado Esquerdo: Chamada e História */
+.hero-chamada {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.badge-destaque {
+    background-color: rgba(181, 101, 118, 0.12);
+    color: #b56576;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-chamada h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: #4a3b40;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.hero-chamada p {
+    font-size: 1rem;
+    color: #6d4c54;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Estilização da História da Proprietária */
+.historia-proprietaria {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid rgba(181, 101, 118, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(110, 70, 80, 0.05);
+    margin-bottom: 20px;
+}
+
+.historia-card {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.historia-icone {
+    background-color: #b56576;
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+    box-shadow: 0 3px 10px rgba(181, 101, 118, 0.3);
+}
+
+.historia-texto h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #4a3b40;
+    margin-bottom: 6px;
+}
+
+.historia-texto p {
+    font-size: 0.9rem;
+    color: #6d4c54;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Nova Div: Endereço e Informações de Pagamento na Esquerda */
+.info-estudio {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid rgba(181, 101, 118, 0.2);
+    padding: 18px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(110, 70, 80, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: #6d4c54;
+}
+
+.info-item i {
+    font-size: 1.1rem;
+    color: #b56576;
+    width: 20px;
+    text-align: center;
+}
+
+.info-item strong {
+    color: #4a3b40;
+}
+
+/* Lado Direito: Agenda (Card de Agendamento) */
+.hero-agenda {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.agenda-card {
+    background-color: #ffffff;
+    padding: 30px 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(110, 70, 80, 0.1);
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid rgba(181, 101, 118, 0.15);
+}
+
+.agenda-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #4a3b40;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.agenda-sub {
+    font-size: 0.9rem;
+    color: #8c6d75;
+    margin-bottom: 20px;
+}
+
+.form-agenda {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-grupo label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6d4c54;
+}
+
+.input-grupo input, 
+.input-grupo select {
+    width: 100%;
+    padding: 11px 15px;
+    border: 1px solid #e0c8ce;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: #faf5f6;
+    color: #4a3b40;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.input-grupo input:focus, 
+.input-grupo select:focus {
+    border-color: #b56576;
+    background-color: #ffffff;
+}
+
+/* Botão de WhatsApp na Agenda com cor que combina perfeitamente com a página (Rosé Sofisticado) */
+.btn-whatsapp-agenda {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    background-color: #b56576;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(181, 101, 118, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 5px;
+}
+
+.btn-whatsapp-agenda i {
+    font-size: 1.2rem;
+    color: #25d366;
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.btn-whatsapp-agenda:hover {
+    background-color: #9c4f5f;
+    transform: translateY(-2px);
+}
+
+/* Área Restrita do ADM */
+.agenda-registros {
+    margin-top: 25px;
+    border-top: 1px solid #f0e1e4;
+    padding-top: 15px;
+}
+
+.adm-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.agenda-registros h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: #4a3b40;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-adm-toggle {
+    background-color: transparent;
+    color: #b56576;
+    border: 1px solid #b56576;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-adm-toggle:hover {
+    background-color: #b56576;
+    color: #fff;
+}
+
+.oculto {
+    display: none !important;
+}
+
+.painel-senha {
+    margin-top: 12px;
+    background-color: #faf5f6;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e0c8ce;
+}
+
+.painel-senha p {
+    font-size: 0.8rem;
+    color: #6d4c54;
+    margin-bottom: 6px;
+}
+
+.grupo-senha {
+    display: flex;
+    gap: 8px;
+}
+
+.grupo-senha input {
+    flex: 1;
+    padding: 6px 10px;
+    border: 1px solid #e0c8ce;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.grupo-senha button {
+    background-color: #b56576;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.conteudo-adm {
+    margin-top: 12px;
+}
+
+.lista-registros {
+    max-height: 150px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.nenhum-registro {
+    font-size: 0.8rem;
+    color: #9c848a;
+    text-align: center;
+    padding: 8px;
+    font-style: italic;
+}
+
+.registro-item {
+    background-color: #faf5f6;
+    border: 1px solid #e0c8ce;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: #4a3b40;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.registro-info strong {
+    color: #b56576;
+}
+
+.btn-fechar-adm {
+    background-color: #8c6d75;
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-fechar-adm:hover {
+    background-color: #6d4c54;
+}
+
+/* Responsividade Completa para Celulares e Tablets */
+@media (max-width: 992px) {
+    .nav-bar {
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px 0;
+    }
+
+    .aviso-dezembro {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        font-size: 0.82rem;
+        padding: 8px 12px;
+    }
+
+    .logotipo {
+        order: 1;
+    }
+
+    .redes-sociais {
+        order: 2;
+    }
+
+    .conteudo-principal {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 92%;
+        margin: 20px auto;
+        gap: 30px;
+    }
+
+    .hero-chamada {
+        align-items: center;
+    }
+
+    .hero-chamada h1 {
+        font-size: 2.1rem;
+    }
+
+    .historia-card, .info-estudio {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .info-item {
+        justify-content: center;
+    }
+
+    .agenda-card {
+        max-width: 100%;
+        padding: 20px;
+    }
+}
